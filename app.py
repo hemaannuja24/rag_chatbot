@@ -1,10 +1,11 @@
 import streamlit as st
-from langchain.vectorstores import FAISS
+from langchain.vectorstores import Chroma
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 from utils import extract_text_from_pdf, get_vectorstore_from_text
 import os
+import tempfile
 
 st.set_page_config(page_title="RAG Chatbot", layout="centered")
 

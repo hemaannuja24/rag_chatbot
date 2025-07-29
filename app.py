@@ -4,15 +4,12 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 from utils import extract_text_from_pdf, get_vectorstore_from_text
-import os
-import tempfile
 
 st.set_page_config(page_title="RAG Chatbot", layout="centered")
 
 st.title("📄 Chat With Your Report")
 st.caption("Upload a PDF and ask questions!")
 
-# Upload and process the PDF
 uploaded_file = st.file_uploader("Upload your PDF report", type=["pdf"])
 
 if uploaded_file:
@@ -29,7 +26,6 @@ if uploaded_file:
         return_source_documents=False
     )
 
-    # Chat interface
     query = st.text_input("Ask a question about the report:")
 
     if query:
